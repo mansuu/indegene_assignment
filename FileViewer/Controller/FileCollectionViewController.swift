@@ -38,22 +38,7 @@ class FileCollectionViewController: UICollectionViewController, UICollectionView
         return 1
     }
     
-//
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        let segueidentifier = segue.identifier
-//
-//        switch segueidentifier {
-//        case "pushDetailViewController", "showDetailviewController":
-//            if let destination = segue.destination as? DetailsViewController {
-//                if let file = sender as? File{
-//                    destination.fileSelected(file: file)
-//                }
-//            }
-//
-//        default:
-//            break
-//        }
-//    }
+
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return fileCollectionModel.getDataSourceCount()
@@ -67,7 +52,7 @@ class FileCollectionViewController: UICollectionViewController, UICollectionView
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? FileCell
         // Configure the cell
         cell?.contentView.backgroundColor = UIColor.darkGray
-        cell?.file = fileCollectionModel.getDataSource()[indexPath.row]
+        cell?.file = fileCollectionModel.getItem(at: indexPath)
         cell?.configureCell()
         return cell!
     }
