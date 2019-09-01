@@ -15,8 +15,7 @@ class Util{
         let asset: AVAsset = AVAsset(url: fromUrl)
         let imageGenerator = AVAssetImageGenerator(asset: asset)
         imageGenerator.appliesPreferredTrackTransform = true
-        
-        let time = CMTimeMakeWithSeconds(1.0, preferredTimescale: 600)
+        let time = CMTimeMake(value: 2, timescale: 60)
         do {
             let img = try imageGenerator.copyCGImage(at: time, actualTime: nil)
             let thumbnail = UIImage(cgImage: img)
@@ -25,8 +24,6 @@ class Util{
             print(error.localizedDescription)
             return nil
         }
-        
-        return nil
     }
     
     static func pdfThumbnail(url: URL, width: CGFloat = 240) -> UIImage? {

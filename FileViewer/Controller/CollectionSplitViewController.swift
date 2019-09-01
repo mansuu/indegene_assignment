@@ -15,7 +15,6 @@ class CollectionSplitViewController: UISplitViewController, UISplitViewControlle
 
         // Do any additional setup after loading the view.
         delegate = self
-//        preferredDisplayMode = .primaryOverlay
     }
     
 

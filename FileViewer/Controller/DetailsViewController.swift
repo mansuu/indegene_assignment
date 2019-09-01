@@ -56,24 +56,13 @@ class DetailsViewController: UIViewController {
     
     //MARK :- Reload Page to show new content
     func refreshPage(){
-        removeCache()
         self.loadViewIfNeeded()
         indicator.bringSubviewToFront(self.view)
         indicator.startAnimating()
-        webView.load(URLRequest(url: URL(string: file?.filePath! ?? "")!))
-    }
-    
-    //MARK: - Remove WKWebView Cached requests
-    func removeCache(){
-        if #available(iOS 9.0, *) {
-            let websiteDataTypes = NSSet(array: [WKWebsiteDataTypeDiskCache, WKWebsiteDataTypeMemoryCache])
-            let date = NSDate(timeIntervalSince1970: 0)
-            WKWebsiteDataStore.default().removeData(ofTypes: websiteDataTypes as! Set<String>, modifiedSince: date as Date, completionHandler:{ })
+        webView.evaluateJavaScript("document.documentElement.remove()") { (_, _) in
+            self.webView.load(URLRequest(url: URL(string: self.file?.filePath! ?? "")!))
         }
-        else
-        {
-            URLCache.shared.removeAllCachedResponses()
-        }
+        
     }
     
 }

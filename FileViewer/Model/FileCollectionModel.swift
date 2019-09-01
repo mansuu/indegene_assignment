@@ -5,13 +5,13 @@
 //  Created by Himanshu on 28/08/19.
 //  Copyright © 2019 Himanshu. All rights reserved.
 //
-
+//https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4
 import Foundation
 class FileCollectionModel {
     var dataSource = [File]()
     func createDataSource(){
         dataSource.append(File(fileType: FileType.image, filePath: "https://homepages.cae.wisc.edu/~ece533/images/airplane.png"))
-        dataSource.append(File(fileType: FileType.video, filePath: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"))
+        dataSource.append(File(fileType: FileType.video, filePath: "https://www.radiantmediaplayer.com/media/bbb-360p.mp4"))
         if let pdf = Bundle.main.url(forResource: "dummy", withExtension: "pdf", subdirectory: nil, localization: nil)  {
             let pdfPath = "\(pdf)"
             dataSource.append(File(fileType: FileType.pdf, filePath: pdfPath))
