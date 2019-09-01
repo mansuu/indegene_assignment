@@ -15,7 +15,7 @@ class Util{
         let asset: AVAsset = AVAsset(url: fromUrl)
         let imageGenerator = AVAssetImageGenerator(asset: asset)
         imageGenerator.appliesPreferredTrackTransform = true
-        let time = CMTimeMake(value: 2, timescale: 60)
+        let time = CMTimeMake(value: 1, timescale: 1)
         do {
             let img = try imageGenerator.copyCGImage(at: time, actualTime: nil)
             let thumbnail = UIImage(cgImage: img)
