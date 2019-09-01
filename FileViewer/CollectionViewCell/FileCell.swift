@@ -64,15 +64,15 @@ class FileCell: UICollectionViewCell {
             return
         }
         indicator.startAnimating()
-        DispatchQueue.global().async {
+        DispatchQueue.global(qos : .background).async {
             //Do some Back ground task
             var thumbnailImage : UIImage?
             switch file.fileType!{
             case .image :
                 if let imageUrl = URL(string: file.filePath ?? ""){
                 do{
-                    let imageData = try Data.init(contentsOf: imageUrl)
-                    if let image = UIImage.init(data: imageData){
+                    let imageData = try Data(contentsOf: imageUrl)
+                    if let image = UIImage(data: imageData){
                         thumbnailImage = image
                     }
                 }

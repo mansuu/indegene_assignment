@@ -12,7 +12,6 @@ class CollectionSplitViewController: UISplitViewController, UISplitViewControlle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
         delegate = self
     }
